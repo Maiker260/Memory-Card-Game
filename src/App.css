@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    color: white;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: url(../src/assets/wallpaperflare.com_wallpaper.webp) center / cover no-repeat fixed;
+    background-color: #000;
+    overflow-x: hidden;
+}
+
+.flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.hero {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.content {
+    width: 100%;
+    padding: 0 2em 7em;
+}
+
+.buttons {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttonTest {
+    padding: 1em;
+    background-color: rgb(10, 77, 77);
+    border-radius: 2em;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.buttonTest:hover {
+    text-decoration: underline;
+    transform: scale(0.95);
+}

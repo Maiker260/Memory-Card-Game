@@ -1,0 +1,28 @@
+.header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scoreboard {
+    border: 1px solid white;
+    width: 15em;
+    height: fit-content;
+    justify-content: center;
+    gap: 2em;
+}
+
+.current-score, .high-score {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 1em 0;
+    gap: 0.8em;
+    flex-direction: column;
+}
+
+.scores {
+    margin: 0;
+}
+
+.scores-titles {
+    border-bottom: 1px solid white;
+}

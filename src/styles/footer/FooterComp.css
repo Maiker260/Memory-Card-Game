@@ -1,0 +1,11 @@
+.footer {
+    position: fixed;
+    bottom: 2em;
+    width: 100%;
+    text-align: center;
+}
+
+.counter {
+    font-size: 3rem;
+    margin: 0;
+}

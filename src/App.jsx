@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
-import getChampsInfo from "./getChampsinfo";
+import Header from "./components/header/header";
+import CardGameContainer from "./components/content/CardGameContainer";
+import FooterComp from "./components/footer/FooterComp";
+import getChampsInfo from "./components/getChampsinfo";
+import selectCharacters from "./components/selectCharacters";
+import GameButton from "./components/GameButton";
+import changeGameMode from "./components/changeGameMode";
 
-export default function testing() {
+import '../src/App.css'
+
+export default function App() {
 
   const [characters, setCharacters] = useState({});
   const [charactersSelected, setcharactersSelected] = useState([]);
+  const [charactersUsedInGame, setCharactersUsedInGame] = useState(charactersSelected);
+  const [gameMode, setGameMode] = useState('Easy');
+  const [score, setScore] = useState('2');
+  const [highScore, setHighScore] = useState('5');
+
 
   useEffect(() => {
     async function fetchCharacterData() {
@@ -14,28 +27,29 @@ export default function testing() {
     fetchCharacterData()
   }, [])
 
-  function selectCharacters() {
-    setcharactersSelected(
-      Object.keys(characters).filter(
-        character => character === "Vayne"|| character === "Aatrox" || character === "Ahri"
-      )
-    )
+  const buttonHandlers = {
+    gameMode: (e) => changeGameMode(e, setGameMode, selectCharacters, characters, setcharactersSelected)
   }
 
   return (
-    <div>
-      <ul>
-        {charactersSelected.map(pj => (
-          <li key={pj}>{pj}</li>
-        ))}
-      </ul>
-      <div>
-        {charactersSelected.map(pj => (
-          <img key={pj} src={`https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${pj}_0.jpg`} alt={`${pj}SplashArt`} />
-        ))}
+    <section className="hero flex">
+      <div className="content">
+        <Header 
+          score={score} 
+          highScore={highScore}/>
+        <CardGameContainer 
+          data={ charactersSelected } 
+        />
+        <div className="buttons flex">
+          <GameButton gameMode={'Easy'} onClick={buttonHandlers.gameMode}/>
+          <GameButton gameMode={'Medium'} onClick={buttonHandlers.gameMode}/>
+          <GameButton gameMode={'Expert'} onClick={buttonHandlers.gameMode}/>
+        </div>
+        <FooterComp 
+          score={score} 
+          gameMode={gameMode}/>
       </div>
-      <button onClick={selectCharacters}>Click Me</button>
-    </div>
+    </section>
   )
 
 }
