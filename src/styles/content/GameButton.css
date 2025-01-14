@@ -1,0 +1,10 @@
+.game_mode_button {
+    font-family: monospace, sans-serif;
+    color: #fff;
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, rgb(95, 138, 209) 0%, rgb(101, 164, 223) 92%, rgb(69, 166, 235) 100%);
+}

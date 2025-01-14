@@ -30,7 +30,7 @@ html, body {
     padding: 0 2em 7em;
 }
 
-.buttons {
+/* .buttons {
     flex-direction: row;
     justify-content: center;
 }
@@ -47,4 +47,4 @@ html, body {
 .buttonTest:hover {
     text-decoration: underline;
     transform: scale(0.95);
-}
+} */

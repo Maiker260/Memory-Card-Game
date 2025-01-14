@@ -1,0 +1,21 @@
+.main_screen {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3em;
+}
+
+.main_title_container {
+    text-align: center;
+    color: #a1ac82;
+    font-size: 60px;
+    margin-bottom: 50px;
+    text-shadow: -.06em 0 .08em #000, .06em 0 .08em #000, 0 .06em .08em #000, 0 -.06em .08em #000, -.06em .06em .08em #000, .06em .06em .08em #000, -.06em -.06em .08em #000, .06em -.06em .08em #000;
+}
+
+.main_title {
+    margin: 0;
+}
+
+.buttons {
+    gap: 2em;
+}

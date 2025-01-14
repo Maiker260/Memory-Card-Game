@@ -1,6 +1,6 @@
 import '../../styles/footer/FooterComp.css'
 
-export default function FooterComp({ score, gameMode }) {
+export default function FooterComp({ score, gameMode, isGameActive }) {
   const modes = {
     Easy: 5,
     Medium: 10,
@@ -9,9 +9,15 @@ export default function FooterComp({ score, gameMode }) {
 
   let totalCharacters = modes[gameMode]
 
-  return (
-      <section className="footer">
+  const footer = isGameActive
+    ? <section className="footer">
         <h3 className="counter">{`${score}/${totalCharacters}`}</h3>
       </section>
+    : null
+
+  return (
+      <>
+        {footer}
+      </>
   )
 }

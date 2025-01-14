@@ -5,7 +5,6 @@ import getChampsInfo from "./components/getChampsinfo";
 import selectCharacters from "./components/selectCharacters";
 import changeGameMode from "./components/changeGameMode";
 import DisplayCurrentContent from "./components/content/displayCurrentContent";
-import GameButton from "./components/GameButton";
 
 import '../src/App.css'
 
@@ -18,8 +17,6 @@ export default function App() {
   const [score, setScore] = useState('2');
   const [highScore, setHighScore] = useState('5');
   const [isGameActive, setIsGameActive] = useState(false);
-
-
 
   useEffect(() => {
     async function fetchCharacterData() {
@@ -38,7 +35,9 @@ export default function App() {
       <div className="content">
         <Header 
           score={score} 
-          highScore={highScore}/>
+          highScore={highScore}
+          isGameActive={isGameActive}
+        />
         <DisplayCurrentContent 
           data={charactersSelected}
           buttonHandlers={buttonHandlers.gameMode}
@@ -46,7 +45,9 @@ export default function App() {
         />
         <FooterComp 
           score={score} 
-          gameMode={gameMode}/>
+          gameMode={gameMode}
+          isGameActive={isGameActive}
+        />
       </div>
     </section>
   )

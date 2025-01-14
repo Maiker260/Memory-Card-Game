@@ -9,12 +9,15 @@ export default function CardGameContainer({ data }) {
     const imgRefs = useRef({});
 
     function flipCard() {
-        setIsFlipped(!isFlipped)
+        setTimeout(
+            () => setIsFlipped(!isFlipped),
+            400
+        )
     }
 
     return (
         <section className='main_content'>
-            <div className='cards_container grid'>
+            <div className='cards_container grid' onLoad={flipCard}>
                 {data.map(character => (
                     <ReactCardFlip flipDirection='horizontal' isFlipped={isFlipped} key={character}>
                         <img 
@@ -37,7 +40,7 @@ export default function CardGameContainer({ data }) {
                     </ReactCardFlip>
                 ))}
             </div>
-            <button onClick={flipCard}>CLICK</button>
+            {/* <button onClick={flipCard}>CLICK</button> */}
         </section>
     )
 }
