@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Header from "./components/header/header";
-import CardGameContainer from "./components/content/CardGameContainer";
 import FooterComp from "./components/footer/FooterComp";
 import getChampsInfo from "./components/getChampsinfo";
 import selectCharacters from "./components/selectCharacters";
-import GameButton from "./components/GameButton";
 import changeGameMode from "./components/changeGameMode";
+import DisplayCurrentContent from "./components/content/displayCurrentContent";
+import GameButton from "./components/GameButton";
 
 import '../src/App.css'
 
@@ -17,6 +17,8 @@ export default function App() {
   const [gameMode, setGameMode] = useState('Easy');
   const [score, setScore] = useState('2');
   const [highScore, setHighScore] = useState('5');
+  const [isGameActive, setIsGameActive] = useState(false);
+
 
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function App() {
   }, [])
 
   const buttonHandlers = {
-    gameMode: (e) => changeGameMode(e, setGameMode, selectCharacters, characters, setcharactersSelected)
+    gameMode: (e) => changeGameMode(e, setGameMode, selectCharacters, characters, setcharactersSelected, isGameActive, setIsGameActive)
   }
 
   return (
@@ -37,19 +39,15 @@ export default function App() {
         <Header 
           score={score} 
           highScore={highScore}/>
-        <CardGameContainer 
-          data={ charactersSelected } 
+        <DisplayCurrentContent 
+          data={charactersSelected}
+          buttonHandlers={buttonHandlers.gameMode}
+          isGameActive={isGameActive}
         />
-        <div className="buttons flex">
-          <GameButton gameMode={'Easy'} onClick={buttonHandlers.gameMode}/>
-          <GameButton gameMode={'Medium'} onClick={buttonHandlers.gameMode}/>
-          <GameButton gameMode={'Expert'} onClick={buttonHandlers.gameMode}/>
-        </div>
         <FooterComp 
           score={score} 
           gameMode={gameMode}/>
       </div>
     </section>
   )
-
 }
