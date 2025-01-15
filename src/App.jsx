@@ -4,7 +4,7 @@ import FooterComp from "./components/footer/FooterComp";
 import getChampsInfo from "./components/getChampsinfo";
 import selectCharacters from "./components/selectCharacters";
 import changeGameMode from "./components/changeGameMode";
-import DisplayCurrentContent from "./components/content/displayCurrentContent";
+import DisplayCurrentContent from "./components/content/DisplayCurrentContent";
 
 import '../src/App.css'
 
