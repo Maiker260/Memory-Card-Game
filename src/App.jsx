@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Header from "./components/header/header";
+import Header from "./components/header/Header";
 import FooterComp from "./components/footer/FooterComp";
 import getChampsInfo from "./components/getChampsinfo";
 import selectCharacters from "./components/selectCharacters";
@@ -11,11 +11,11 @@ import '../src/App.css'
 export default function App() {
 
   const [characters, setCharacters] = useState({});
-  const [charactersSelected, setcharactersSelected] = useState([]);
-  const [charactersUsedInGame, setCharactersUsedInGame] = useState(charactersSelected);
-  const [gameMode, setGameMode] = useState('Easy');
-  const [score, setScore] = useState('2');
-  const [highScore, setHighScore] = useState('5');
+  const [charactersSelected, setCharactersSelected] = useState([]);
+  const [charactersAlreadyClicked, setCharactersAlreadyClicked] = useState([]);
+  const [gameMode, setGameMode] = useState('');
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [isGameActive, setIsGameActive] = useState(false);
 
   useEffect(() => {
@@ -27,7 +27,15 @@ export default function App() {
   }, [])
 
   const buttonHandlers = {
-    gameMode: (e) => changeGameMode(e, setGameMode, selectCharacters, characters, setcharactersSelected, isGameActive, setIsGameActive)
+    gameMode: (e) => changeGameMode(
+      e, 
+      setGameMode, 
+      selectCharacters, 
+      characters, 
+      setCharactersSelected, 
+      isGameActive, 
+      setIsGameActive
+    )
   }
 
   return (
@@ -38,10 +46,19 @@ export default function App() {
           highScore={highScore}
           isGameActive={isGameActive}
         />
-        <DisplayCurrentContent 
-          data={charactersSelected}
+        <DisplayCurrentContent
+          charactersSelected={charactersSelected}
+          setCharactersSelected={setCharactersSelected}
+          score={score}
+          setScore={setScore}
+          highScore={highScore}
+          setHighScore={setHighScore}
           buttonHandlers={buttonHandlers.gameMode}
+          gameMode={gameMode}
           isGameActive={isGameActive}
+          setIsGameActive={setIsGameActive}
+          charactersAlreadyClicked={charactersAlreadyClicked}
+          setCharactersAlreadyClicked={setCharactersAlreadyClicked}
         />
         <FooterComp 
           score={score} 
