@@ -1,7 +1,7 @@
 import '../../styles/header/Header.css'
+import logo from '../../assets/lolitoLogo.webp'
 
 export default function Header({ score, highScore, isGameActive }) {
-
   const scoreboard = isGameActive
     ? <div className="scoreboard flex">
         <div className="current-score flex">
@@ -18,7 +18,7 @@ export default function Header({ score, highScore, isGameActive }) {
     return (
         <section className="header flex">
           <div className="logo-container">
-            <img src="../src/assets/lolitoLogo.webp" alt="Logo" height='170px'/>
+            <img src={logo} alt="Logo" height='170px'/>
           </div>
           {scoreboard}
         </section>

@@ -29,22 +29,3 @@ html, body {
     width: 100%;
     padding: 0 2em 7em;
 }
-
-/* .buttons {
-    flex-direction: row;
-    justify-content: center;
-}
-
-.buttonTest {
-    padding: 1em;
-    background-color: rgb(10, 77, 77);
-    border-radius: 2em;
-    color: white;
-    cursor: pointer;
-    border: none;
-}
-
-.buttonTest:hover {
-    text-decoration: underline;
-    transform: scale(0.95);
-} */
