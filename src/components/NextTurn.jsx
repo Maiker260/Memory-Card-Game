@@ -15,6 +15,7 @@ export default function NextTurn(
     setIsGameActive,
     setHighScore
 ) {
+
     const character = e.target.dataset.name;
     const alreadyClicked = charactersAlreadyClicked.includes(character);
 
