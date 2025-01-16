@@ -22,21 +22,16 @@ export default function CardGameContainer({
     const [isFlipped, setIsFlipped] = useState(false);
     const imgRefs = useRef({});
 
-    useEffect(() => {
-        charactersSelected.forEach((character) => {
-          const img = new Image();
-          img.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${character}_0.jpg`;
-        });
-      }, [charactersSelected]);
-
     function flipCardsFn () {
         flipCard(setIsFlipped)
         setTimeout(() => flipCard(setIsFlipped, false), 700);
     };
 
-    if (score > highScore) {
-        setHighScore(score);
-    }
+    useEffect(() => {
+        if (score > highScore) {
+          setHighScore(score);
+        }
+    }, [score, highScore]);
 
     const onClick = (e) => NextTurn(
         e,

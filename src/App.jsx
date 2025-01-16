@@ -5,6 +5,7 @@ import getChampsInfo from "./components/getChampsinfo";
 import selectCharacters from "./components/selectCharacters";
 import changeGameMode from "./components/changeGameMode";
 import DisplayCurrentContent from "./components/content/DisplayCurrentContent";
+import imagePreloader from "./components/utils/imagePreloader";
 
 import '../src/App.css'
 
@@ -22,6 +23,9 @@ export default function App() {
     async function fetchCharacterData() {
       const data = await getChampsInfo();
       setCharacters(data);
+
+      const allCharacters = Object.keys(data);
+      imagePreloader(allCharacters);
     }
     fetchCharacterData()
   }, [])
