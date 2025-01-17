@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import ReactCardFlip from 'react-card-flip'
-import NextTurn from '../NextTurn'
-import flipCard from '../flipCard'
+import NextTurn from '../utils/NextTurn'
+import flipCard from '../utils/flipCard'
 
 import '../../styles/content/CardGameContainer.css'
 import cardBack from '../../assets/league-of-legends-project-k-card-backs-black-blue-white.webp'
@@ -38,13 +38,11 @@ export default function CardGameContainer({
         charactersSelected,
         charactersAlreadyClicked,
         score,
-        gameMode,
         setIsFlipped,
         setCharactersSelected,
         setCharactersAlreadyClicked,
         setScore,
-        setIsGameActive,
-        setHighScore
+        setIsGameActive
     )
 
     return (

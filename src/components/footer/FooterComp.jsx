@@ -1,5 +1,5 @@
 import '../../styles/footer/FooterComp.css'
-import gameModeScores from '../gameModeScores'
+import gameModeScores from '../utils/gameModeScores'
 
 export default function FooterComp({ score, gameMode, isGameActive }) {
   let totalCharacters = gameModeScores[gameMode]

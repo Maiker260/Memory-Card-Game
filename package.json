@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "framer-motion": "^12.0.0-alpha.1",
     "react": "^18.3.1",
     "react-card-flip": "^1.2.3",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "toldo": "^0.1.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

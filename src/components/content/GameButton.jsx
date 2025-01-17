@@ -1,4 +1,4 @@
-import '../styles/content/GameButton.css'
+import '../../styles/content/GameButton.css'
 
 export default function GameButton({ gameMode, onClick }) {
     return (

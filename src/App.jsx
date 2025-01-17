@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import Header from "./components/header/Header";
 import FooterComp from "./components/footer/FooterComp";
-import getChampsInfo from "./components/getChampsinfo";
-import selectCharacters from "./components/selectCharacters";
-import changeGameMode from "./components/changeGameMode";
+import getChampsInfo from "./components/utils/getChampsinfo";
+import selectCharacters from "./components/utils/selectCharacters";
+import changeGameMode from "./components/utils/changeGameMode";
 import DisplayCurrentContent from "./components/content/DisplayCurrentContent";
 import imagePreloader from "./components/utils/imagePreloader";
+import VictoryModal from "./components/content/VictoryModal";
+import gameModeScores from "./components/utils/gameModeScores";
 
 import '../src/App.css'
 
@@ -18,6 +20,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [isGameActive, setIsGameActive] = useState(false);
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
 
   useEffect(() => {
     async function fetchCharacterData() {
@@ -29,6 +32,18 @@ export default function App() {
     }
     fetchCharacterData()
   }, [])
+
+  useEffect(() => {
+    if (score === gameModeScores[gameMode]) {
+      setShowVictoryModal(true);
+    }
+  }, [score]);
+
+  const handleRestart = () => {
+    setScore(0);
+    setIsGameActive(false);
+    setShowVictoryModal(false);
+  };
 
   const buttonHandlers = {
     gameMode: (e) => changeGameMode(
@@ -49,6 +64,12 @@ export default function App() {
           score={score} 
           highScore={highScore}
           isGameActive={isGameActive}
+        />
+        <VictoryModal
+          isOpen={showVictoryModal}
+          onClose={handleRestart}
+          score={score}
+          highScore={highScore}
         />
         <DisplayCurrentContent
           charactersSelected={charactersSelected}

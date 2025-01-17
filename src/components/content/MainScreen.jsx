@@ -1,4 +1,4 @@
-import GameButton from "../GameButton"
+import GameButton from './GameButton'
 
 import '../../styles/content/MainScreen.css'
 
